@@ -1,4 +1,5 @@
-
+-- copies table as global object?
+-- https://www.tutorialspoint.com/lua/lua_tables_as_object.htm
 
 function print_table(table)
   for i=1,#table
