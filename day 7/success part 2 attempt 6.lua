@@ -3,6 +3,8 @@
 -- if a splitter is hit increases the beam count of the adj cells by 1
 -- if a beam count of 2 hits a splitter that creates 4 timelines (twice for each beam count), increases the adj beam counts by n
 
+-- problem is that is what iterating through each timeline 1 by 1 and there's like ~4*10^14 timelines
+
 --------------------------------------------------------------------------------------------------
 
 function print_table(table)
