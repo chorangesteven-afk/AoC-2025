@@ -4,6 +4,7 @@
 -- if a beam count of 2 hits a splitter that creates 4 timelines (twice for each beam count), increases the adj beam counts by n
 
 -- problem is that is what iterating through each timeline 1 by 1 and there's like ~4*10^14 timelines
+-- go at it in a way where you only scan the input once
 
 --------------------------------------------------------------------------------------------------
 
