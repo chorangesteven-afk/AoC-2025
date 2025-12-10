@@ -60,6 +60,19 @@ function table.table_copy(t)
    return t2
 end
 
+
+--  Function clone receives any table and returns a clone of it. 
+
+function clone (t)           -- t is a table
+  local new_t = {}           -- create a new table
+  local i, v = next(t, nil)  -- i is an index of t, v = t[i]
+  while i do
+    new_t[i] = v
+    i, v = next(t, i)        -- get next index
+  end
+  return new_t
+end
+
 --[[
 -- original table
 studentDetails = {
