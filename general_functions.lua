@@ -4,4 +4,5 @@ function removeIndex(tab,index)
     tab[index] = tab[index + 1]
   end
   tab[#tab] = nil
+  return tab
 end
