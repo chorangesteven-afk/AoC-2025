@@ -150,7 +150,9 @@ n = 1000
 --------------------------------------------------------------------------------------------------
 
 
--- make a linked list circuit for each unique number found in the pairs of closest boxes
+-- make a linked list circuit for each unique number found in the pairs of closest boxes <- this isn't true
+
+-- make a circuit for each unique box found in the first n pairs of closest boxes.
 
 uniqueNum = {boxesSorted[1]}
 
