@@ -13,7 +13,7 @@ this method iterates through:
 check the edge line segments of each rectangle
 
 make a list of points that are one out from the ori points
-inspired from this video: https://youtu.be/tGxIUnLyVWU?si=WDknEkuTAoQYI-LT
+inspired from this video: https://youtu.be/tGxIUnLyVWU?si=rWyNOWRAtJDE7EYl&t=160
   iterate ccw and keep the orig polygon on the left for every turn
   going up the list of inputs seems to go ccw around the polygon
 
