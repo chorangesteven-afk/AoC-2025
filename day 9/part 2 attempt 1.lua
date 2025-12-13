@@ -6,7 +6,7 @@ sort by x and y values so you can use a more efficient searching algo when valid
 
 
 Iterate along the right side of the rectangle:
-  if that point is more right than the rightmost point on the domain then that point on the rectangle is invalid
+  if the point you're on is more right than the rightmost point on the domain then that point on the rectangle is invalid
 
 do the same for every edge of the rectangle to validate.
 
