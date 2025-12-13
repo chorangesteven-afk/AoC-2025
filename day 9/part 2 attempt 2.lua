@@ -27,7 +27,7 @@ first look at the top edge of the rectangle:
 for the side edges compare the y value of the x-ranges of the points on the outer domain with the y values of the top and bot corners of the rectangle
 
 assumptions:
- * assumes that no 3 subsequent points along the domain are colinear (all three pts being on the same vertical or horizontal line)
+ * assumes that no 3 subsequent points along the domain are colinear (all three pts being on the same vertical or horizontal line, the domain does not turn at a point and instead continues in the same dir)
  * assuems that the max area rectangle does not have a length or width of 1
 
 other helpful sources:
