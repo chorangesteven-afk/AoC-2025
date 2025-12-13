@@ -19,7 +19,7 @@ inspired from this video: https://youtu.be/tGxIUnLyVWU?si=WDknEkuTAoQYI-LT
 
 
 first look at the top edge of the rectangle:
-  from the points of the new outer domain find the y-range the top edge is b.w.
+  from the vertice points of the new outer domain find the y-range the top edge is b.w.
   imagine a vertical line at each pt
   the x value is gonna be the same for a vertical line
   compare that x value with the x value of the top right and top left corners of the rectangle
