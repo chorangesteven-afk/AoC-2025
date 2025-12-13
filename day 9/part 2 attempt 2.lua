@@ -27,7 +27,10 @@ for the side edges compare the y value of the x-ranges of the points on the oute
 
 going up the list of inputs seems to go ccw around the polygon
 
-
+other helpful sources:
+https://www.geeksforgeeks.org/cpp/point-in-polygon-in-cpp/
+https://www.geeksforgeeks.org/dsa/how-to-check-if-a-given-point-lies-inside-a-polygon/
+https://www.geeksforgeeks.org/dsa/check-if-two-given-line-segments-intersect/
 ]]--
 
 
