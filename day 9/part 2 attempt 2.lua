@@ -35,6 +35,10 @@ other helpful sources:
 https://www.geeksforgeeks.org/cpp/point-in-polygon-in-cpp/
 https://www.geeksforgeeks.org/dsa/how-to-check-if-a-given-point-lies-inside-a-polygon/
 https://www.geeksforgeeks.org/dsa/check-if-two-given-line-segments-intersect/
+
+
+could try this to make it run faster: You'll see that the rectangles you find that are fully on the inside will always be bigger than any that are fully on the outside. 
+
 ]]--
 
 
