@@ -28,6 +28,7 @@ for the side edges compare the y value of the x-ranges of the points on the oute
 
 assumptions:
  * assumes that no 3 subsequent points along the domain are colinear (all three pts being on the same vertical or horizontal line, the domain does not turn at a point and instead continues in the same dir)
+    (just look at the star on drawing1.png)
  * assuems that the max area rectangle does not have a length or width of 1
 
 other helpful sources:
