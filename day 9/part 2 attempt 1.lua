@@ -1,3 +1,18 @@
+--[[
+i gave up on this midway through because it always times out on onecompiler.com whenever it tries to sort the perimeter tables.
+
+generate a table that stores the entire perimeter of the domain
+sort by x and y values so you can use a more efficient searching algo when validating rectangle points.
+
+
+Iterate along the right side of the rectangle:
+  if that point is more right than the rightmost point on the domain then that point on the rectangle is invalid
+
+do the same for every edge of the rectangle to validate.
+
+]]--
+
+
 --------------------------------------------------------------------------------------------------
 
 function print_table(table)
