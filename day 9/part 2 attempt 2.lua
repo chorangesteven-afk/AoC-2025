@@ -15,6 +15,7 @@ check the edge line segments of each rectangle
 make a list of points that are one out from the ori points
 inspired from this video: https://youtu.be/tGxIUnLyVWU?si=WDknEkuTAoQYI-LT
   iterate ccw and keep the orig polygon on the left for every turn
+  going up the list of inputs seems to go ccw around the polygon
 
 
 first look at the top edge of the rectangle:
@@ -25,7 +26,7 @@ first look at the top edge of the rectangle:
   
 for the side edges compare the y value of the x-ranges of the points on the outer domain with the y values of the top and bot corners of the rectangle
 
-going up the list of inputs seems to go ccw around the polygon
+
 
 other helpful sources:
 https://www.geeksforgeeks.org/cpp/point-in-polygon-in-cpp/
