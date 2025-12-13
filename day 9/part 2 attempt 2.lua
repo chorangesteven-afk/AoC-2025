@@ -1,16 +1,29 @@
 --[[
+unfortunately this method is too slow for: onecompiler.com and times out.
+and I can't really think of a faster one.
+
+this method iterates through:
+  * each potential rectangle
+  * the four corners of each rectangle
+  * for each corner has to search through the vertices table to get matching ranges
+]]--
+
+
+--[[
 check the edge line segments of each rectangle
+
 make a list of points that are one out from the ori points
+inspired from this video: https://youtu.be/tGxIUnLyVWU?si=WDknEkuTAoQYI-LT
   iterate ccw and keep the orig polygon on the left for every turn
 
 
 first look at the top edge of the rectangle:
-  from the points find the y-range the top edge is b.w.
+  from the points of the new outer domain find the y-range the top edge is b.w.
   imagine a vertical line at each pt
-  the x value is gonna be the same
+  the x value is gonna be the same for a vertical line
   compare that x value with the x value of the top right and top left corners of the rectangle
   
-for the side edges compare the x-ranges of the points with the y values of the top and bot corners
+for the side edges compare the y value of the x-ranges of the points on the outer domain with the y values of the top and bot corners of the rectangle
 
 going up the list of inputs seems to go ccw around the polygon
 
