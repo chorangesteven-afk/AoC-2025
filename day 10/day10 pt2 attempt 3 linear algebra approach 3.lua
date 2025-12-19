@@ -1,3 +1,67 @@
+--[[
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+this code is held together by the last of my sanity
+
+
+
+wrote linear equation solver from scratch
+
+used a table to represent fractions instead of messing with floats:
+this was a mistake
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+references:
+Approach based on this post:
+https://www.reddit.com/r/adventofcode/comments/1plzhps/2025_day_10_part_2_pivot_your_way_to_victory/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+
+https://www.reddit.com/r/adventofcode/comments/1pl8nsa/2025_day_10_part_2_is_this_even_possible_without/
+
+rref:
+https://en.wikipedia.org/wiki/Gaussian_elimination#Example_of_the_algorithm
+https://youtu.be/f1e2Zij6W3s?si=oFSIrO8g2sdCqxm2
+https://youtu.be/WhH660cLDkA?si=2pos1M0JcHLkM9t4
+https://youtu.be/mpimdNG9XsA?si=WaUGv04SwAscS7W8
+https://www.deep-ml.com/problems/48?ref=yacinelearning
+https://youtu.be/2j5Ic2V7wq4?si=PLg7WtptaZUXPz9q
+https://youtu.be/HHCkV-0Hg8I?si=GHDUTwa3IQOZZWO7
+https://youtu.be/DZJKDmAwynE?si=R8ePJDWDp3--8g-w
+https://youtu.be/ShonVncOAB4?si=xWNLbDQV7cBu6rHP
+calc:
+https://planetcalc.com/8328/
+
+euclid algo:
+https://www.calculatorsoup.com/calculators/math/gcf.php
+
+
+]]--
+
+
+
+
+
+
+
+
+
+
+
+
 --------------------------------------------------------------------------------------------------
 
 function print_table(table)
@@ -1174,6 +1238,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
