@@ -171,6 +171,8 @@ function fractionTableEqual(t1,t2)
 end
 --------------------------------------------------------------------------------------------------
 
+--changes the matrix to a matrix of fractions
+
 function changeToFractions(M)
   for r = 1,#M
   do
@@ -1315,6 +1317,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
