@@ -133,6 +133,8 @@ end
 
 --------------------------------------------------------------------------------------------------
 
+-- used in the rref algo to find the next row in the submatrix
+
 function returnNextRow(tab)
   --print("returning: " .. tab[#tab] + 1)
   return tab[#tab] + 1
@@ -154,6 +156,7 @@ function tableEqual(t1,t2)
   return true
 end
 
+-- are two fractions represented by tables equal
 
 function fractionTableEqual(t1,t2)
   for i = 1,#t1
@@ -182,6 +185,8 @@ end
 
 --------------------------------------------------------------------------------------------------
 
+-- find the pivot index for rref algo
+
 function leftmostNonZeroCol(M,r)
   for c = 1,#M[1]
   do
@@ -197,6 +202,7 @@ end
 
 --------------------------------------------------------------------------------------------------
 
+-- scale a row by a scalar
 
 function scaleRow(M,r,s)
   for c = 1,#M[1]
@@ -215,6 +221,8 @@ function scaleRow(M,r,s)
     end
   end
 end
+
+
 
 function mulTwoFrac(f1,f2)
   local f11 = table.table_copy(f1)
@@ -238,7 +246,8 @@ end
 
 --------------------------------------------------------------------------------------------------
 
-
+-- used to find greatest common factor
+-- was used to simplify fractions
 
 function euclid(f)
   if (f[1] > f[2])
@@ -304,6 +313,8 @@ end
 
 --print(euclid(test))
 
+-- simplified fractions
+
 function reduceFraction(f)
   --print("test")
   if (f[1] ~= 0)
@@ -365,6 +376,8 @@ function addTwoFractions(f1,f2)
   return resF
 end
 
+-- subtract fractions
+
 function subTwoFractions(f1,f2)
   local d1 = f1[2]
   local d2 = f2[2]
@@ -379,6 +392,7 @@ function subTwoFractions(f1,f2)
   return resF
 end
 
+-- is f1 (fraction 1) less fraction 2
 
 function f1LessThanf2(f1,f2)
   local one = f1[1] / f1[2]
@@ -390,6 +404,8 @@ function f1LessThanf2(f1,f2)
     return false
   end
 end
+
+-- add a scalar of row 1 to row2
 
 function addScalarRow(M,r1,s,r2)
   -- adds scalar of r1 to r2
@@ -426,6 +442,7 @@ end
 
 --------------------------------------------------------------------------------------------------
 
+-- used in the rref algo to elimiate values above and below the pivot point
 
 function eliminateAboveAndBelow(M,pr,pc)
   for r = 1,#M
@@ -443,6 +460,9 @@ end
 
 
 --------------------------------------------------------------------------------------------------
+
+-- used in rref algo
+-- checks if all the remaining rows in the matrix are zero
 
 function onlyZeroRowsLeft(M,rs)
   for r = rs,#M
@@ -462,6 +482,7 @@ end
 
 --------------------------------------------------------------------------------------------------
 
+-- fixes somes things in the rref matrix
 
 function fixUp(M)
   for r = 1,#M
@@ -589,7 +610,8 @@ end
 
 
 
-
+-- finds the integer domains of how many times each button can be pressed
+-- based on joltage counters
 
 function baselineDomains(jolt,buttonsf)
   local tab = {}
@@ -678,7 +700,7 @@ end
 --------------------------------------------------------------------------------------------------
 
 
-
+-- finds which variables in the rref are free and which are basic
 
 function findBasicandFreeVar(M)
   local basicVar = {}
@@ -895,11 +917,17 @@ totalButtonPresses = 0
 totalButtonPresses2 = 0
 
 
+-- main loop:
+-- iterates through each machine
+
 
 for m = 1,#buttons
 do
 
+	--------------------------------------------------------------------------------------------------
 
+	-- initialize matrix
+	
   matrix = {}
 
   for r = 1,#joltageRequirements[m]
@@ -913,8 +941,10 @@ do
 
   --print_table_table(matrix)
 
+--------------------------------------------------------------------------------------------------
 
-
+	-- fills out matrix
+	
   for i = 1,#buttons[m]
   do
     for j = 1,#buttons[m][i]
@@ -941,6 +971,9 @@ do
 
   --------------------------------------------------------------------------------------------------
 
+	-- sort out joltage requirements
+	-- used to find the most limiting domain for each variable
+	
   table.sort(joltageRequirements[m],sortByVal)
 
 
@@ -951,7 +984,7 @@ do
   print_table(domains)
   print()
 
-
+--------------------------------------------------------------------------------------------------
 
 
   rref(matrix)
@@ -959,7 +992,7 @@ do
   print("rref matrix:")
   print_fractional_matrix(matrix)
 
-
+--------------------------------------------------------------------------------------------------
 
 
   local t1,t2 = findBasicandFreeVar(matrix)
@@ -976,12 +1009,15 @@ do
 
   --------------------------------------------------------------------------------------------------
 
+	-- main solver:
 
   -- first check if no free variables -> solve normally
   local sum1 = 0
 
   if (#t2 == 0)
   then
+		-- no free variables
+		-- can be solved normally
     for r = 1,#matrix
     do
       sum1 = sum1 + matrix[r][#matrix[1]][1]
@@ -989,13 +1025,13 @@ do
     end
     print("sum1 is " .. sum1)
   else
-    -- simulate all to zero, check if valid
+		-- free variables exist
 
 
 
 
 
-
+-- initalizes free variables to zero
 
     -- fine outside of loop
     local freeVariableIterator = {}
@@ -1013,6 +1049,9 @@ do
     end
     ]]--
 
+		-- gets the row that each button is on from the matrix
+		-- used later on when solving for each variable
+		
     -- fine outside of loop
     local basicVariableRows = {}
     for i = 1,#t1
@@ -1086,9 +1125,14 @@ do
     ]]--
 
 
+-- initialize the current machine min # of button presses
+		
     currentMin = {math.huge,1}
 
 
+		-- makes a table that has a free variable at the max value it can take
+		-- used to stop the free variable incrementor loop
+		
     -- outside loop
     local freeVariableMax = {}
 
@@ -1105,15 +1149,30 @@ do
     end
     ]]--
 
+		-- loop doesn't do the last set of free variables naturally
+		-- this bool makes the loop run one more time
+		
     local bool1 = true
 
+		-- free variable incrementor loop		
     repeat
 
 
 
+			-- how many times each button is pressed
+			
       local basicVariableButtonPresses = {}
+
+			--------------------------------------------------------------------------------------------------
+			
+			-- initalizes to true
+			-- if basic variable is negative or noninteger
+			-- skips the rest of the solver and moves to the next set of free variables
+			
       local bool2 = true
 
+-- calculates how many times each basic variable would be pressed given the current set of free variables
+			
       for i = 1,#t1
       do
         local finalValue = table.table_copy(matrix[basicVariableRows[i].row][#matrix[1]])
@@ -1135,6 +1194,10 @@ do
         basicVariableButtonPresses[i] = table.table_copy(finalValue)
       end
 
+			--------------------------------------------------------------------------------------------------
+
+			-- if basic variable is an integer and greater than or equal to zero -> continues
+			
       if (bool2)
       then
 
@@ -1146,6 +1209,9 @@ do
         end
         ]]--
 
+				--------------------------------------------------------------------------------------------------
+				-- gets the sum of all buttons presses (free and basic)
+				
         local buttonPressSum = {0,1}
 
         for i = 1,#basicVariableButtonPresses
@@ -1160,12 +1226,18 @@ do
         --print("sum of button presses is:")
         --print_table(buttonPressSum)
 
+				--------------------------------------------------------------------------------------------------
+
+				-- compares sum to current machine min
+				
         if (f1LessThanf2(buttonPressSum,currentMin))
         then
           currentMin = table.table_copy(buttonPressSum)
         end
 
 
+				--------------------------------------------------------------------------------------------------
+				
       end
 
 
@@ -1178,7 +1250,7 @@ do
 
       -- make sure its checking only one at a time
 
-      -- break if you can change it
+      -- break if you can change a free variable
       for i = 1,#freeVariableIterator
       do
         --print("test1")
@@ -1205,6 +1277,8 @@ do
       --print("free variables are:")
       --print_table_table(freeVariableIterator)
 
+			
+			-- makes the loop run one more time so it checks the final set of free variables
 
       if (fractionTableEqual(freeVariableIterator,freeVariableMax))
 	then
@@ -1212,6 +1286,9 @@ do
       end
 
 
+			-- ends loop when all free variables are the max they can be
+			-- it will have iterated through all of its possible values after this loop
+			
     until((bool1) and (fractionTableEqual(freeVariableIterator,freeVariableMax)))
 
 
@@ -1238,6 +1315,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
