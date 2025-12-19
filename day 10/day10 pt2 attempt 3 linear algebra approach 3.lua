@@ -1242,7 +1242,7 @@ do
 
 				--------------------------------------------------------------------------------------------------
 
-				-- compares sum to current machine min
+				-- compares sum of button presses to current machine's mininum number of button presses
 				
         if (f1LessThanf2(buttonPressSum,currentMin))
         then
@@ -1329,6 +1329,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
