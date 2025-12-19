@@ -7,7 +7,7 @@ this code is held together by the last of my sanity
 wrote linear equation solver from scratch
 
 used a table to represent fractions instead of messing with floats:
-this was a mistake
+this was probably a mistake
 
 
 
@@ -1329,6 +1329,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
