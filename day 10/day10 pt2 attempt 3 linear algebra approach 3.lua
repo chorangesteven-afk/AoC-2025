@@ -30,7 +30,7 @@ references:
 Approach based on this post:
 https://www.reddit.com/r/adventofcode/comments/1plzhps/2025_day_10_part_2_pivot_your_way_to_victory/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
-https://www.reddit.com/r/adventofcode/comments/1pl8nsa/2025_day_10_part_2_is_this_even_possible_without/
+https://www.reddit.com/r/adventofcode/comments/1pl8nsa/2025_day_10_part_2_is_this_even_possible_without/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
 rref:
 https://en.wikipedia.org/wiki/Gaussian_elimination#Example_of_the_algorithm
@@ -1315,6 +1315,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
