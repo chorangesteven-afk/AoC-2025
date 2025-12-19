@@ -524,9 +524,12 @@ function rref(M)
 
 
 
-
+-- r1 is the first row the submatrix that can be modified
 
   local r1 = returnNextRow(dontChangeTheseRows)
+
+	-- pivot index
+	
   local r,c = leftmostNonZeroCol(M,r1)
 
 
@@ -541,11 +544,15 @@ function rref(M)
     --print("r is " .. r)
     --print("c is " .. c)
 
+
+		-- scales the row if the pivot value isn't 1
+		
     if (not(tableEqual(M[r][c],{1,1})))
     then
       local s = {}
       if ((M[r][c][1] < 0) and (M[r][c][2] > 0))
       then
+		-- flips negative from den to num
         s = {-M[r][c][2],-M[r][c][1]}
       else
         s = {M[r][c][2],M[r][c][1]}
@@ -563,6 +570,9 @@ function rref(M)
 
     --print("r is " .. r)
     --print("r1 is " .. r1)
+
+		-- swaps row is the pivot value isn't on the highest row of the submatrix
+		
     if (r ~= r1)
     then
       --print("swapping rows " .. r .. " with " .. r1)
@@ -577,11 +587,13 @@ function rref(M)
     --print("r is " .. r)
     --print("c is " .. c)
 
+		-- eliminate values above and below the pivot index
 
     eliminateAboveAndBelow(M,r,c)
 
     --print_fractional_matrix(M)
 
+		-- mark the current row as one that no longer needs to be checked
 
     table.insert(dontChangeTheseRows,r1)
 
@@ -1317,6 +1329,7 @@ end
 
 print("number of times a button was pressed: " .. totalButtonPresses)
 print("number of times a button was pressed: " .. totalButtonPresses2)
+
 
 
 
