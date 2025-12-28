@@ -46,3 +46,6 @@ function valNotInTable(tab,val)
   end
   return true
 end
+
+
+format specifiers + string.format()
